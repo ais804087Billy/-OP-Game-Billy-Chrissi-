@@ -1,0 +1,73 @@
+		//ATTEMPT 1
+		//RIGHT
+		if(shooting1 == 1 && rightLast1 == 1)
+		{
+			bulletX1 = bulletX1 + 20;
+			rpLoss1 = -150;
+		
+		}
+		//LEFT
+		if(shooting1 == 1 && leftLast1 == 1)
+		{
+			bulletX1 = bulletX1 - 20;
+			rpLoss1 = -150;
+		
+		}
+		
+		///////////////////////////////////////////////ATTEMPT 2
+		//RIGHT
+		if(shooting1 == 1 && rightLast1 == 1 && lockDirection1 == 0)
+		{
+			bulletRight1 = true;
+			lockDirection1 = 1;
+			rpLoss1 = -150;
+		
+		}
+	
+		if (bulletRight1 == true)
+		{
+			bulletX1 = bulletX1 + 20;
+		}
+		//LEFT
+		if(shooting1 == 1 && leftLast1 == 1 && lockDirection1 == 0)
+		{
+			bulletLeft1 = true;
+			lockDirection1 = 1;
+			rpLoss1 = -150;
+		
+		}
+	
+		if (bulletLeft1 == true)
+		{
+			bulletX1 = bulletX1 - 20;
+		}
+		
+		////////////////////////////////////////////////ATTEMPT 3 
+		//RIGHT
+		if(shooting1 == 1 && rightLast1 == 1 && lockDirection1 == 0)
+		{
+			bulletDirection1 = 1;
+			lockDirection1 = 1;
+			rpLoss1 = -150;
+		
+		}
+	
+		if (bulletDirection1 == 1)
+		{
+			bulletX1 = bulletX1 + 20;
+		}
+		//LEFT
+		if(shooting1 == 1 && leftLast1 == 1 && lockDirection1 == 0)
+		{
+			bulletDirection1 = 2;
+			lockDirection1 = 1;
+			rpLoss1 = -150;
+		
+		}
+	
+		if (bulletDirection1 == 1)
+		{
+			bulletX1 = bulletX1 - 20;
+		}
+		
+		

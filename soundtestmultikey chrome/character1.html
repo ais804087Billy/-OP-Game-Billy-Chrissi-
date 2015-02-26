@@ -1,0 +1,224 @@
+<title> Select Character </title>
+
+<script type="text/javascript" src="script/soundmanager2.js"></script>
+<script type="text/javascript" src="script/loadsoundchrome.js"></script>
+
+<center>
+    <script src="script/processing-1.4.1.js"></script>
+    <script type="text/processing" data-processing-target="mycanvas">
+
+/* @pjs globalKeyEvents = "true"; */
+
+PImage select;
+PImage back;
+PImage mudkip;
+PImage pikachu;
+PImage yoshi;
+PImage kirby;
+PImage mario;
+PImage next;
+
+String character;
+
+int mudkip1;
+int pikachu1;
+int yoshi1;
+int mario1;
+int kirby1;
+
+void setup(){  
+
+    size(1000,600);  
+    background(0,0,0);
+    frameRate( 30 );
+    
+    select = loadImage("Buttons/selectCharacter1.png");
+    back = loadImage("Buttons/back.png");
+    next = loadImage("Buttons/next.png");
+    mudkip = loadImage("Characters/mudkip.png");
+    pikachu = loadImage("Characters/pikachu.png");
+	yoshi = loadImage("Characters/yoshi.png");
+	kirby = loadImage("Characters/kirby.png");
+	mario = loadImage("Characters/mario.png");
+	
+	mudkip1 = 0;
+	pikachu1 = 0;
+	yoshi1 = 0;
+	mario1 = 0;
+	kirby1 = 0;
+	
+	selectMu = 0;
+	selectP = 0;
+	selectY = 0;
+	selectMa = 0;
+	selectK = 0;
+}  
+
+
+void draw()
+{
+    size(1000,600);  
+    background(0,0,0);
+    frameRate( 30 );
+    
+	image(select,250,30,500,90);
+	image(back,20,530,110,50);
+	image(next,870,530,110,50);
+	
+	//ROW 2 
+	rect(430,330,110,150,5,5,5,5);
+	rect(610,330,110,150,5,5,5,5);
+	
+	//CHARACTERS
+	image(mudkip,165,155,100,140);
+	image(pikachu,345,155,100,140);
+	image(yoshi,525,155,100,140);
+	image(kirby,255,350,100,110);
+	image(mario,700,140,120,160);
+
+	//SELECT CHARACTER RECTANGLES 
+   
+    //MUDKIP RECT
+    if ( 160 < mouseX && mouseX < 270
+	&& 150 < mouseY && mouseY < 300
+	&& mousePressed == true && mouseButton == LEFT)
+	{	
+		mudkip1 = 1;
+		pikachu1 = 0;
+		yoshi1 = 0;
+		mario1 = 0;
+		kirby1 = 0;
+	}
+	if(mudkip1 == 1)
+	{
+		fill(0,0,102);
+		rect(160,150,110,150,5,5,5,5);
+		image(mudkip,165,155,100,140);
+		selectMu = 1;
+		character = 1;
+	}
+    //PIKACHU RECT
+    if ( 340 < mouseX && mouseX < 450
+	&& 150 < mouseY && mouseY < 300
+	&& mousePressed == true && mouseButton == LEFT)
+	{	
+		mudkip1 = 0;
+		pikachu1 = 1;
+		yoshi1 = 0;
+		mario1 = 0;
+		kirby1 = 0;
+	}
+	if(pikachu1 == 1)
+	{
+		fill(102,102,0);
+		rect(340,150,110,150,5,5,5,5);
+		image(pikachu,345,155,100,140);
+		selectP = 1;
+		character = 2;
+	}
+	
+	//YOSHI RECT
+    if ( 520 < mouseX && mouseX < 630
+	&& 150 < mouseY && mouseY < 300
+	&& mousePressed == true && mouseButton == LEFT)
+	{	
+		mudkip1 = 0;
+		pikachu1 = 0;
+		yoshi1 = 1;
+		mario1 = 0;
+		kirby1 = 0;
+	}
+	if(yoshi1 == 1)
+	{
+		fill(0,102,0)
+		rect(520,150,110,150,5,5,5,5);
+		image(yoshi,525,155,100,140);
+		selectY = 1;
+		character = 3;
+	}
+	
+	//MARIO RECT
+    if ( 700 < mouseX && mouseX < 810
+	&& 150 < mouseY && mouseY < 300
+	&& mousePressed == true && mouseButton == LEFT)
+	{	
+		mudkip1 = 0;
+		pikachu1 = 0;
+		yoshi1 = 0;
+		mario1 = 1;
+		kirby1 = 0;
+	}
+	if(mario1 == 1)
+	{
+		fill(102,0,0);
+		rect(700,150,110,150,5,5,5,5);
+		image(mario,700,140,120,160);
+		selectMa = 1;
+		character = 4;
+	}
+    //KIRBY RECT
+    if ( 250 < mouseX && mouseX < 360
+	&& 330 < mouseY && mouseY < 480
+	&& mousePressed == true && mouseButton == LEFT)
+	{	
+		mudkip1 = 0;
+		pikachu1 = 0;
+		yoshi1 = 0;
+		mario1 = 0;
+		kirby1 = 1;
+	}
+	if(kirby1 == 1)
+	{
+		fill(102,0,51);
+		rect(250,330,110,150,5,5,5,5); 
+		image(kirby,255,350,100,110);
+		selectK = 1;
+		character = 5;
+	}
+	
+    if ( 250 < mouseX && mouseX < 360
+	&& 330 < mouseY && mouseY < 480
+	&& mousePressed == true && mouseButton == LEFT)
+	{	
+		mudkip1 = 0;
+		pikachu1 = 0;
+		yoshi1 = 0;
+		mario1 = 0;
+		kirby1 = 1;
+	}
+	
+	//BACK BUTTON
+    if ( 20 < mouseX && mouseX < 130
+	&& 530 < mouseY && mouseY < 580
+	&& mousePressed == true && mouseButton == LEFT)
+	{	
+		link("NoOfPlayers.html");
+	}
+
+	//CHRISSI 
+    if ( 430 < mouseX && mouseX < 540
+	&& 330 < mouseY && mouseY < 480
+	&& mousePressed == true && mouseButton == LEFT)
+	{	
+		link("passcodeC.html");
+	}
+    
+    //NEXT BUTTON
+    if ( 870 < mouseX && mouseX < 980
+	&& 530 < mouseY && mouseY < 580
+	&& mousePressed == true && mouseButton == LEFT
+	&& (selectMu ==1 || selectP == 1 || selectY ==1 || 
+	selectMa ==1 || selectK ==1))
+	{	
+		link("kirby running.html");
+		sessionStorage.transferx1 = character;
+	}
+
+  
+}
+
+
+
+    </script>
+    <canvas id="mycanvas"></canvas>
+</center>
